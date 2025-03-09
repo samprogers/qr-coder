@@ -1,0 +1,17 @@
+---
+version: "3"
+services:
+  python:
+    build: .
+    tty: true
+    container_name: qr-coder
+    volumes:
+      - .:/var/task/qr-coder:delegated
+    ports:
+      - "8000:8000"
+  redis:
+    image: redis:6.2-alpine
+    restart: always
+    container_name: qr_redis
+    ports:
+      - "6379:6379"
