@@ -1,0 +1,27 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+org: 899999
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: qr-coder
+service: qr-coder
+provider:
+  name: aws
+  runtime: python3.9
+  stage: dev
+  region: us-east-1
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+functions:
+  app:
+    handler: wsgi_handler.handler
+    environment: ${self:custom.variables}
+    timeout: 30
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'
+custom:
+  wsgi:
+    app: serverless.wsgi.application
+    packRequirements: false
+  variables: ${file(./env.yml)}

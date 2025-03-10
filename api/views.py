@@ -18,4 +18,6 @@ def generate(request):
 
     qr_path = qr.qrFromUrl(url)
     image = open(qr_path, "rb")
-    return FileResponse(image, content_type="image/png")
+    response = HttpResponse(image, content_type="image/png")
+    response['Content-Disposition'] = 'attachment; filename=qrcode.png'
+    return response
