@@ -21,10 +21,6 @@ from ui import views
 
 urlpatterns = [
     path("", views.index, name="index"),
-=======
-
-urlpatterns = [
->>>>>>> origin/main
     path('admin/', admin.site.urls),
     path('api/', include("api.urls"))
 ]
