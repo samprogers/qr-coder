@@ -6,5 +6,5 @@ def qrFromUrl(url: str):
     qr.make(fit=False)
 
     img = qr.make_image()
-    img.save('/var/task/qr-coder/generated.png')
-    return '/var/task/qr-coder/generated.png'
+    img.save('/tmp/generated.png')
+    return '/tmp/generated.png'

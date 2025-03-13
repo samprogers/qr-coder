@@ -1,0 +1,17 @@
+{% extends "ui/base.html" %}
+
+{% block title %}
+ Free QR Generator
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+<form action="api/generate" method="GET">
+
+        <label>URL: </label>
+        <input type="text" name="url" value="https://" />
+        <input type="submit" style="width:100%;"  />
+
+</form>
+    </div>
+{% endblock %}

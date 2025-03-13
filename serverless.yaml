@@ -1,0 +1,71 @@
+# "org" ensures this Service is used with the correct Serverless Framework Access Key.
+# https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml
+org: 899999
+frameworkVersion: "^3.0"
+# "app" enables Serverless Framework Dashboard features and sharing them with other Services.
+app: qr-coder
+service: qr-coder
+provider:
+  iam:
+    role:
+      # Add statements to the IAM role to give permissions to Lambda functions
+      statements:
+        - Effect: Allow
+          Action:
+            - 'cloudfront:*'
+          Resource: '*'
+
+  name: aws
+  runtime: python3.9
+  stage: dev
+  region: us-east-1
+  logs:
+    httpApi: true
+    restApi:
+      role: ${self:custom.cloudwatchRole}
+
+package:
+  individually: true
+  exclude:
+    - .env
+    - .git/**
+    - .github/**
+    - .serverless/**
+    - static/**
+    - .cache/**
+    - .pytest_cache/**
+    - node_modules/**
+  include:
+    - '*.py'
+    - 'requirements,txt'
+
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+  - serverless-prune-plugin
+functions:
+  app:
+    handler: wsgi_handler.handler
+    environment: ${self:custom.variables}
+    runtime: python3.9
+    timeout: 30
+    events:
+      - httpApi: '*'
+      #- http: ANY /
+      #  path: /
+      #- http: 'ANY /{proxy+}'
+custom:
+  cloudwatchRole: arn:aws:iam::890742588543:role/ApiGatewayAccountLogging
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
+    filename: requirements.txt
+    usePoetry: false
+  wsgi:
+    app: qrcoder.wsgi.application
+    packRequirements: false
+  prune:
+    automatic: true
+    number: 3
+  variables: ${file(./env.yml)}
