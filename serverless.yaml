@@ -14,7 +14,10 @@ provider:
           Action:
             - 'cloudfront:*'
           Resource: '*'
-
+        - Effect: Allow
+          Action:
+            - 's3:*'
+          Resource: '*'
   name: aws
   runtime: python3.9
   stage: dev
@@ -43,6 +46,23 @@ plugins:
   - serverless-wsgi
   - serverless-python-requirements
   - serverless-prune-plugin
+resources:
+  Resources:
+    S3Bucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.bucketName}
+    S3BucketPolicy:
+      Type: AWS::S3::BucketPolicy
+      Properties:
+        Bucket: !Ref S3Bucket
+        PolicyDocument:
+          Statement:
+            - Effect: Allow
+              Action: "s3:GetObject"
+              Resource: !Join ["", [!GetAtt S3Bucket.Arn, "/*"]]
+              #Principal:
+              #  CanonicalUser: !GetAtt CloudFrontOriginAccessIdentity.S3CanonicalUserId
 functions:
   app:
     handler: wsgi_handler.handler
@@ -55,6 +75,7 @@ functions:
       #  path: /
       #- http: 'ANY /{proxy+}'
 custom:
+  bucketName: free-qrcoder-content
   cloudwatchRole: arn:aws:iam::890742588543:role/ApiGatewayAccountLogging
   pythonRequirements:
     dockerizePip: true
