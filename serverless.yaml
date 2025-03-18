@@ -61,7 +61,14 @@ resources:
             - Effect: Allow
               Action: "s3:GetObject"
               Resource: !Join ["", [!GetAtt S3Bucket.Arn, "/*"]]
-              Principal: 'arn:aws:cloudfront::890742588543:distribution/E28II535CO5CCT'
+              Principal:
+                Service: 'cloudfront.amazonaws.com'
+            - Effect: Allow
+              Action: "s3:GetObject"
+              Resource: !Join ["", [!GetAtt S3Bucket.Arn, "/*"]]
+              Condition:
+                StringEquals:
+                  "AWS:SourceArn": "arn:aws:cloudfront::890742588543:distribution/E28II535CO5CCT"
 functions:
   app:
     handler: wsgi_handler.handler
