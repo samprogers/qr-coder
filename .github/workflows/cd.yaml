@@ -17,6 +17,13 @@ jobs:
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
+
+    - uses: shallwefootball/s3-upload-action@master
+      with:
+        aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+        aws_bucket: 'free-qrcoder-content'
+        source_dir: 'ui/static'
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
       with:
