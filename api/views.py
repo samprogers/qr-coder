@@ -10,8 +10,6 @@ from django.core.exceptions import ValidationError
 def generate(request):
     validate = URLValidator()
     url = request.GET.get('url')
-    box_size = request.GET.get('box_size')
-    border_size = request.GET.get('border_size')
 
     try:
         validate(url)
