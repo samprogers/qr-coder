@@ -5,6 +5,8 @@ services:
     build: .
     tty: true
     container_name: qr-coder
+    environment:
+      - DEBUG=True
     volumes:
       - .:/var/task/qr-coder:delegated
     ports:

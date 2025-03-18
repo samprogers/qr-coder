@@ -289,6 +289,22 @@ redis = ">=3,<4.0.0 || >4.0.0,<4.0.1 || >4.0.1"
 hiredis = ["redis[hiredis] (>=3,!=4.0.0,!=4.0.1)"]
 
 [[package]]
+name = "django-s3-storage"
+version = "0.15.0"
+description = "Django Amazon S3 file storage."
+optional = false
+python-versions = "*"
+groups = ["main"]
+files = [
+    {file = "django-s3-storage-0.15.0.tar.gz", hash = "sha256:2f81ada72de54f7ba092a079aaf1e03f32e3bd9901ddcf62847ebe7de4fc554c"},
+    {file = "django_s3_storage-0.15.0-py3-none-any.whl", hash = "sha256:d6805d09ce6ffb79c25b97d22dacdad5084bbfa67c361c5f4deaf4bce50ac635"},
+]
+
+[package.dependencies]
+boto3 = ">=1.4.4,<2"
+django = ">=3.2"
+
+[[package]]
 name = "djangorestframework"
 version = "3.15.2"
 description = "Web APIs for Django, made easy."
@@ -1217,4 +1233,4 @@ wheel = "*"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.9"
-content-hash = "6499ff60d2e714bc7ceed363809692daedd21fc17a4b667d1218cdfe1d56101b"
+content-hash = "98ea03c9a32c4355b65a1cde83b3cdf86582e7c0b96b072b6aae972ee148f315"
