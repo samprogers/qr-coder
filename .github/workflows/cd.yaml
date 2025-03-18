@@ -30,7 +30,7 @@ jobs:
         npm install -g --save-dev serverless-wsgi
         npm install -g --save-dev serverless-python-requirements
 
-        python ./manage.py collectstatic
+        python manage.py collectstatic
 
         cd ${{ github.workspace }}
         serverless deploy --verbose
