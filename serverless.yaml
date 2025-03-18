@@ -52,23 +52,6 @@ resources:
       Type: AWS::S3::Bucket
       Properties:
         BucketName: ${self:custom.bucketName}
-    S3BucketPolicy:
-      Type: AWS::S3::BucketPolicy
-      Properties:
-        Bucket: !Ref S3Bucket
-        PolicyDocument:
-          Statement:
-            - Effect: Allow
-              Action: "s3:GetObject"
-              Resource: !Join ["", [!GetAtt S3Bucket.Arn, "/*"]]
-              Principal:
-                Service: 'cloudfront.amazonaws.com'
-            - Effect: Allow
-              Action: "s3:GetObject"
-              Resource: !Join ["", [!GetAtt S3Bucket.Arn, "/*"]]
-              Condition:
-                StringEquals:
-                  "AWS:SourceArn": "arn:aws:cloudfront::890742588543:distribution/E28II535CO5CCT"
 functions:
   app:
     handler: wsgi_handler.handler
