@@ -16,7 +16,7 @@ def generate(request):
     except ValidationError as e:
         return JsonResponse({'error': 'Invalid URL'}, status=400)
 
-    qr_path = qr.qrFromUrl(url)
+    qr_path = qr.qrFromUrl(request)
     image = open(qr_path, "rb")
     response = HttpResponse(image, content_type="image/png")
     response['Content-Disposition'] = 'attachment; filename=qrcode.png'

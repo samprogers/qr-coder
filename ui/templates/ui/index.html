@@ -1,7 +1,8 @@
 {% extends "ui/base.html" %}
+{% load static %}
 
 {% block title %}
- Free QR Generator
+ Absolutely Free QR Generator
 {% endblock %}
 
 {% block content %}
@@ -10,6 +11,28 @@
 
         <label>URL: </label>
         <input type="text" name="url" value="https://" />
+        <label>Box Size: </label>
+        <select name="box_size" id="box_size">
+            {% for i in box_sizes %}
+                {%  if i == 20 %}
+                    <option value="{{ i }}" selected>{{ i }} pixels</option>
+                {% else %}
+                    <option value="{{ i }}">{{ i }} pixels</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+        <label>Border: </label>
+        <select name="border_size" id="border_size">
+            {% for i in borders %}
+                {%  if i == 2 %}
+                    <option value="{{ i }}" selected>{{ i }}</option>
+                {% else %}
+                    <option value="{{ i }}">{{ i }}</option>
+                {% endif %}
+            {% endfor %}
+        </select>
+
+
         <input type="submit" style="width:100%;"  />
 
 </form>
