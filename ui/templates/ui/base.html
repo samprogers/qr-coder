@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -5,113 +6,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
+    <link rel="stylesheet" href="{% static 'ui/base.css' %}">
+    <link rel="stylesheet" href="{% static 'ui/footer.css' %}">
 
-        /* General Page Styling */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-.container {
-    width: 90%;
-    max-width: 800px;
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-}
-
-/* Header Styling */
-header {
-    background: #0073e6;
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 1.5em;
-}
-
-/* Footer Styling */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 10px 0;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
-}
-
-        form {
-  max-width: 400px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: 600;
-  color: #333;
-}
-
-input, textarea, select {
-  width: 94%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-input:focus, textarea:focus, select:focus {
-  border-color: #007bff;
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
-}
-
-input[type="submit"] {
-  width: 100%;
-  padding: 10px;
-  background: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-input[type="submit"]:hover {
-  background: #0056b3;
-}
-
-
-
-    </style>
-
+    {% block styles %}
+    {% endblock %}
     <title>
         {% block title %}
         {% endblock %}
     </title>
-
-    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      Test
-  </header>
+      Absolutely Free QR Code Generator
+    </header>
     {% block content %}
     {% endblock %}
   </body>
-<footer>
-    Footer
-</footer>
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>About Us</h3>
+                <p>A free QR code generator with no ads. Built and deployed by Sam Rogers using AWS Lambda, API Gateway, Serverless and Django.</p>
+            </div>
+
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/privacy">Privacy Policy</a></li>
+                    <li><a href="/cookies">Cookie Policy</a></li>
+                </ul>
+            </div>
+
+            <!-- <div class="footer-column">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook">&#x1F426;</a>
+                    <a href="#" aria-label="Twitter">&#x1F426;</a>
+                    <a href="#" aria-label="Instagram">&#x1F426;</a>
+                </div>
+            </div> -->
+        </div>
+
+        <div class="footer-bottom">
+            &copy; 2025 FreeQRCoder | All Rights Reserved
+        </div>
+    </footer>
 </html>
