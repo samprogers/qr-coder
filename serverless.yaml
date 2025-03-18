@@ -31,7 +31,6 @@ package:
     - .git/**
     - .github/**
     - .serverless/**
-    - static/**
     - .cache/**
     - .pytest_cache/**
     - node_modules/**
