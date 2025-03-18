@@ -5,6 +5,10 @@ services:
     build: .
     tty: true
     container_name: qr-coder
+    environment:
+      - DEBUG=True
+      - DEFAULT_FILE_STORAGE=django.core.storage.FileStorage
+      - STATICFILES_STORAGE=django.core.storage.FileStorage
     volumes:
       - .:/var/task/qr-coder:delegated
     ports:

@@ -19,10 +19,11 @@ from django.urls import path, include
 from ui import views
 
 urlpatterns = [
+    path('', include("ui.urls")),
     #path("privacy", views.privacy, name="privacy"),
     #path("cookies", views.cookies(), name="cookies"),
-    path("", views.index, name="index"),
+    #path("", views.index, name="index"),
     path('admin/', admin.site.urls),
     path('api/', include("api.urls")),
-    path('', include("ui.urls")),
+
 ]
