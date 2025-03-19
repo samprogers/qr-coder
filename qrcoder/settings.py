@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-g_xm=2qd)xm@+_21kt-lu#3!&@2+^69mp_f(yy8%ouc!q^p#&$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['qr-coder.site','free-qrcoder.com']
+ALLOWED_HOSTS = ['qr-coder.site','free-qrcoder.com','www.free-qrcoder.com']
 
 # Application definition
 
