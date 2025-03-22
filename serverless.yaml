@@ -58,7 +58,8 @@ functions:
     environment: ${self:custom.variables}
     runtime: python3.9
     timeout: 120
-    provisionedConcurrency: 10
+    provisionedConcurrency: 1
+    reservedConcurrency: 5
     events:
       - httpApi: '*'
       #- http: ANY /
