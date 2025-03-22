@@ -19,7 +19,7 @@ body {
 }
 
 /* Header Styling */
-header {
+header h1 {
     background: #222;
     color: white;
     text-align: center;
