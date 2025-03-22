@@ -10,7 +10,7 @@ def index(request):
     })
     
 def robots(request):
-    robots = open(settings.BASE_DIR + '/ui/static/ui/robots.txt', 'rb')
+    robots = open(settings.BASE_DIR + "/ui/static/ui/robots.txt", 'rb')
     return FileResponse(robots)
 
 def privacy(request):
