@@ -19,9 +19,12 @@ body {
 }
 
 /* Header Styling */
-header h1 {
+header {
     background: #222;
     color: white;
+}
+
+header h1 {
     text-align: center;
     padding: 20px 0;
     font-size: 1.5em;
