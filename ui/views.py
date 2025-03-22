@@ -11,8 +11,7 @@ def index(request):
     })
     
 def robots(request):
-    path = os.path.join(settings.BASE_DIR, "/ui/static/ui/robots.txt")
-    robots = open(path, 'rb')
+    robots = open("/var/task/ui/static/ui/robots.txt", 'rb')
     return FileResponse(robots)
 
 def privacy(request):
