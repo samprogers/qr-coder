@@ -58,7 +58,7 @@ functions:
     handler: wsgi_handler.handler
     environment: ${self:custom.variables}
     runtime: python3.9
-    timeout: 120
+    timeout: 30
     events:
       - httpApi: '*'
       #- http: ANY /
