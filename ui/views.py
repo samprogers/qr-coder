@@ -9,7 +9,7 @@ def index(request):
     })
     
 def robots(request):
-    robots = open('static/robots.txt', 'rb')
+    robots = open('static/ui/robots.txt', 'rb')
     return FileResponse(robots)
 
 def privacy(request):
