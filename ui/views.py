@@ -11,7 +11,7 @@ def index(request):
     })
     
 def robots(request):
-    robots = open("/var/task/qr-coder/ui/static/ui/robots.txt", 'rb')
+    robots = open("/var/task/ui/static/ui/robots.txt", 'rb')
     return FileResponse(robots)
 
 def privacy(request):
