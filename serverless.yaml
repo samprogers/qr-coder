@@ -66,6 +66,7 @@ functions:
       #- http: 'ANY /{proxy+}'
 custom:
   bucketName: free-qrcoder-content
+  contentCompression: 512
   cloudwatchRole: arn:aws:iam::890742588543:role/ApiGatewayAccountLogging
   pythonRequirements:
     dockerizePip: true
