@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, FileResponse
 from django.template.loader import render_to_string, get_template
+from django.conf import settings
 
 def index(request):
     return render(request, 'ui/index.html', {
@@ -9,7 +10,7 @@ def index(request):
     })
     
 def robots(request):
-    robots = open('static/ui/robots.txt', 'rb')
+    robots = open(settings.BASE_DIR + '/ui/static/ui/robots.txt', 'rb')
     return FileResponse(robots)
 
 def privacy(request):
