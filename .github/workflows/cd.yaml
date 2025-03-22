@@ -35,6 +35,7 @@ jobs:
         npm install -g --save-dev serverless-prune-plugin
         npm install -g --save-dev serverless-wsgi
         npm install -g --save-dev serverless-python-requirements
+        npm install -g --save-dev serverless-api-compression
 
         cd ${{ github.workspace }}
         serverless deploy --verbose
