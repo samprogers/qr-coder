@@ -65,7 +65,7 @@ functions:
       SECURE_REDIRECT_EXEMPT: 'free-qrcoder.com'
       SECURE_SSL_REDIRECT: True
 
-    runtime: python3.9
+    runtime: python3.10
     timeout: 90
     events:
       - httpApi: '*'
