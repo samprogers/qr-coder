@@ -38,10 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_s3_storage',
     'api',
-    'ui'
+    'ui',
+    'canonical_domain'
 ]
 
 MIDDLEWARE = [
+    'canonical_domain.middleware.canonical_domain',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -132,3 +134,6 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AWS_S3_BUCKET_NAME = os.environ.get('AWS_S3_BUCKET_NAME', '')
+#SECURE_SSL_HOST = os.environ.get('SECURE_SSL_HOST', '')
+SECURE_REDIRECT_EXEMPT = 'qr-coder.site:8000'
+SECURE_SSL_REDIRECT = False

@@ -5,7 +5,7 @@ requires-poetry = ">=2.0"
 description = "A web application for generating qr codess"
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.10"
 requests = "^2.26.0"
 node-semver = "^0.8.1"
 django = "^4.2.7"
@@ -18,6 +18,7 @@ psycopg2-binary = "^2.9.10"
 serverless-wsgi = "^3.0.5"
 zappa = "^0.59.0"
 django-s3-storage = "^0.15.0"
+django-canonical-domain = "^0.11.0"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"
