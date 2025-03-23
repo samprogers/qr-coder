@@ -105,10 +105,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 STORAGES = {
     "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
+        "BACKEND": os.environ.get("BACKEND_STORAGE_CLASS", "django.core.files.storage.FileSystemStorage"),
     },
     "staticfiles": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage"
+        "BACKEND": os.environ.get("STATIC_STORAGE_CLASS", "django.contrib.staticfiles.storage.StaticFilesStorage"),
     },
 }
 
