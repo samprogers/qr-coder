@@ -56,8 +56,16 @@ resources:
 functions:
   app:
     handler: wsgi_handler.handler
-    environment: ${self:custom.variables}
-    runtime: python3.9
+    environment:
+      SECRET_KEY: ${ssm:/aws/reference/secretsmanager/prod/qr-coder/django/secret-key}
+      DEBUG: False
+      AWS_S3_BUCKET_NAME: "free-qrcoder-content"
+      STATIC_STORAGE_CLASS: "django_s3_storage.storage.S3Storage"
+      SECURE_SSL_HOST: 'free-qrcoder.com'
+      SECURE_REDIRECT_EXEMPT: 'free-qrcoder.com'
+      SECURE_SSL_REDIRECT: True
+
+    runtime: python3.10
     timeout: 90
     events:
       - httpApi: '*'
@@ -79,4 +87,3 @@ custom:
   prune:
     automatic: true
     number: 3
-  variables: ${file(./env.yml)}
