@@ -267,24 +267,6 @@ argon2 = ["argon2-cffi (>=19.1.0)"]
 bcrypt = ["bcrypt"]
 
 [[package]]
-name = "django-canonical-domain"
-version = "0.11.0"
-description = "Canonical domain redirection for Django"
-optional = false
-python-versions = ">=3.10"
-groups = ["main"]
-files = [
-    {file = "django_canonical_domain-0.11.0-py3-none-any.whl", hash = "sha256:1b5b87a281bbc8586e2a6255d03de5dcecd705ba7dc8299def4a746dd40aa477"},
-    {file = "django_canonical_domain-0.11.0.tar.gz", hash = "sha256:7681753d8ea0c06fa3ffe36deef8b91caa9298ccf9a3cd8abe122fa3f5fab6ac"},
-]
-
-[package.dependencies]
-Django = ">=4.2"
-
-[package.extras]
-tests = ["coverage"]
-
-[[package]]
 name = "django-redis"
 version = "5.4.0"
 description = "Full featured redis cache backend for Django."
@@ -304,20 +286,28 @@ redis = ">=3,<4.0.0 || >4.0.0,<4.0.1 || >4.0.1"
 hiredis = ["redis[hiredis] (>=3,!=4.0.0,!=4.0.1)"]
 
 [[package]]
-name = "django-s3-storage"
-version = "0.15.0"
-description = "Django Amazon S3 file storage."
+name = "django-storages"
+version = "1.14.5"
+description = "Support for many storage backends in Django"
 optional = false
-python-versions = "*"
+python-versions = ">=3.7"
 groups = ["main"]
 files = [
-    {file = "django-s3-storage-0.15.0.tar.gz", hash = "sha256:2f81ada72de54f7ba092a079aaf1e03f32e3bd9901ddcf62847ebe7de4fc554c"},
-    {file = "django_s3_storage-0.15.0-py3-none-any.whl", hash = "sha256:d6805d09ce6ffb79c25b97d22dacdad5084bbfa67c361c5f4deaf4bce50ac635"},
+    {file = "django_storages-1.14.5-py3-none-any.whl", hash = "sha256:5ce9c69426f24f379821fd688442314e4aa03de87ae43183c4e16915f4c165d4"},
+    {file = "django_storages-1.14.5.tar.gz", hash = "sha256:ace80dbee311258453e30cd5cfd91096b834180ccf09bc1f4d2cb6d38d68571a"},
 ]
 
 [package.dependencies]
-boto3 = ">=1.4.4,<2"
-django = ">=3.2"
+Django = ">=3.2"
+
+[package.extras]
+azure = ["azure-core (>=1.13)", "azure-storage-blob (>=12)"]
+boto3 = ["boto3 (>=1.4.4)"]
+dropbox = ["dropbox (>=7.2.1)"]
+google = ["google-cloud-storage (>=1.32)"]
+libcloud = ["apache-libcloud"]
+s3 = ["boto3 (>=1.4.4)"]
+sftp = ["paramiko (>=1.15)"]
 
 [[package]]
 name = "djangorestframework"
@@ -1229,4 +1219,4 @@ wheel = "*"
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.10"
-content-hash = "6ecba86081dea989446829c457061ed9ba157bc62700d4e0f9a31c9c23a8468c"
+content-hash = "25980b2c3b7a4369f86edddd4556532f6748b162ccc895a88e0cb613a46ca9e7"

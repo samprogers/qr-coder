@@ -17,9 +17,8 @@ pillow = "^11.1.0"
 psycopg2-binary = "^2.9.10"
 serverless-wsgi = "^3.0.5"
 zappa = "^0.59.0"
-django-s3-storage = "^0.15.0"
-django-canonical-domain = "^0.11.0"
 boto3 = "1.37.17"
+django-storages = "^1.14.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.3"

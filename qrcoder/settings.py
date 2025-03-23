@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-g_xm=2qd)xm@+_21kt-lu#3!&@2+^69mp_f(yy8%ouc!q^p#&$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get("DEBUG", "True")
 
-ALLOWED_HOSTS = ['qr-coder.site','free-qrcoder.com','www.free-qrcoder.com']
+ALLOWED_HOSTS = ['qr-coder.site','free-qrcoder.com','www.free-qrcoder.com', 'localhost']
 
 # Application definition
 
@@ -36,14 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_s3_storage',
     'api',
     'ui',
-    'canonical_domain'
 ]
 
 MIDDLEWARE = [
-    'canonical_domain.middleware.canonical_domain',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -123,7 +120,6 @@ USE_I18N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
@@ -131,9 +127,11 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
+AWS_STORAGE_BUCKET_NAME = 'free-qrcoder-content'
+AWS_S3_URL_PROTOCOL = 'https'
+AWS_S3_USE_SSL = True
+AWS_S3_VERIFY = True
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AWS_S3_BUCKET_NAME = os.environ.get('AWS_S3_BUCKET_NAME', '')
-#SECURE_SSL_HOST = os.environ.get('SECURE_SSL_HOST', '')
-SECURE_REDIRECT_EXEMPT = 'qr-coder.site:8000'
-SECURE_SSL_REDIRECT = False
