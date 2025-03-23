@@ -108,7 +108,7 @@ STORAGES = {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
-        "BACKEND": os.environ.get("STATIC_STORAGE_CLASS", "django.contrib.staticfiles.storage.StaticFilesStorage"),
+        "BACKEND": "django.core.files.storage.FileSystemStorage"
     },
 }
 
