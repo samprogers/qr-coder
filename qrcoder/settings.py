@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-g_xm=2qd)xm@+_21kt-lu#3!&@2+^69mp_f(yy8%ouc!q^p#&$
 DEBUG = False if os.environ.get("DEBUG", "True") == "0" else True
 
 BASE_URL = 'qr-coder.site'
-ALLOWED_HOSTS = [BASE_URL, 'www.' + BASE_URL, 'localhost']
+ALLOWED_HOSTS = ['free-qrcoder.com', 'www.free-qrcoder.com', 'localhost']
 
 # Application definition
 
