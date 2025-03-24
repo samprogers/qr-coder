@@ -62,6 +62,7 @@ functions:
       AWS_STORAGE_BUCKET_NAME: "free-qrcoder-content"
       STATIC_STORAGE_CLASS: "storages.backends.s3boto3.S3Boto3Storage"
       BASE_URL: 'free-qrcoder.com'
+      ALLOWED_HOSTS: 'free-qrcoder.com,www.free-qrcoder.com'
     timeout: 90
     events:
       - httpApi: '*'
