@@ -63,7 +63,7 @@ functions:
       STATIC_STORAGE_CLASS: "storages.backends.s3boto3.S3Boto3Storage"
       BASE_URL: 'free-qrcoder.com'
       ALLOWED_HOSTS: 'free-qrcoder.com,www.free-qrcoder.com'
-      SERVERLESS_LAST_MODIFIED: '2025-03-23 21:39:4'
+      SERVERLESS_LAST_MODIFIED: '2025-03-23 21:39:20'
     timeout: 90
     events:
       - httpApi: '*'
