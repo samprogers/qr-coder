@@ -21,7 +21,10 @@ def index(request):
     })
 
 def robots(request):
-    rsp = render(request, 'ui/robots.txt')
+    host = request.get_host()
+    rsp = render(request, 'ui/robots.txt', {
+        'host': host,
+    })
     rsp.headers['Content-Type'] = 'text/plain'
     return rsp
 
