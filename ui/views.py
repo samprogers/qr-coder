@@ -1,4 +1,4 @@
-import re
+import os, re, datetime
 from django.shortcuts import render
 from django.http import HttpResponse, FileResponse, HttpResponsePermanentRedirect
 from django.template.loader import render_to_string, get_template
@@ -21,8 +21,22 @@ def index(request):
     })
 
 def robots(request):
-    robots = open("/var/task/ui/static/ui/robots.txt", 'rb')
-    return FileResponse(robots)
+    rsp = render(request, 'ui/robots.txt')
+    rsp.headers['Content-Type'] = 'text/plain'
+    return rsp
+
+def sitemap(request):
+    host = request.get_host()
+    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+    last_modified = os.environ.get('SERVERLESS_LAST_MODIFIED') if os.environ.get('SERVERLESS_LAST_MODIFIED') is not None else now
+    rsp = render(request, 'ui/sitemap.xml', {
+        'host': host,
+        'last_modified': last_modified
+
+    })
+    rsp.headers['Content-Type'] = 'application/xml'
+    return rsp
 
 def privacy(request):
     return render(request, 'ui/privacy.html')
