@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-g_xm=2qd)xm@+_21kt-lu#3!&@2+^69mp_f(yy8%ouc!q^p#&$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False if os.environ.get("DEBUG", "True") == "0" else True
 
-BASE_URL = os.environ.get('BASE_URL', 'qr-coder.site')
+BASE_URL = os.environ.get('BASE_URL', 'qr-coder.site,localhost')
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', 'qr-coder.site,localhost').split(',')
 
 # Application definition
