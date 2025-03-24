@@ -58,8 +58,8 @@ functions:
     handler: wsgi_handler.handler
     environment:
       SECRET_KEY: ${ssm:/aws/reference/secretsmanager/prod/qr-coder/django/secret-key}
-      DEBUG: False
-      AWS_S3_BUCKET_NAME: "free-qrcoder-content"
+      DEBUG: 0
+      AWS_STORAGE_BUCKET_NAME: "free-qrcoder-content"
       STATIC_STORAGE_CLASS: "storages.backends.s3boto3.S3Boto3Storage"
     timeout: 90
     events:
