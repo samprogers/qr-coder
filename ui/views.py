@@ -30,7 +30,7 @@ def robots(request):
 
 def sitemap(request):
     host = request.get_host()
-    now = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    now = datetime.datetime.now().strftime('%Y-%m-%d')
 
     last_modified = os.environ.get('SERVERLESS_LAST_MODIFIED') if os.environ.get('SERVERLESS_LAST_MODIFIED') is not None else now
     rsp = render(request, 'ui/sitemap.xml', {
