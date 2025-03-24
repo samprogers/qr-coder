@@ -56,7 +56,6 @@ resources:
 functions:
   app:
     handler: wsgi_handler.handler
-    provisionedConcurrency: 5
     environment:
       SECRET_KEY: ${ssm:/aws/reference/secretsmanager/prod/qr-coder/django/secret-key}
       DEBUG: False
