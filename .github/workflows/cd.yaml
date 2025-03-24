@@ -22,7 +22,7 @@ jobs:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
       run: |
-        aws s3 sync ui/static/ s3://free-qrcoder-content
+        aws s3 sync --content-encoding gzip ui/static/ s3://free-qrcoder-content
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v5
       with:
