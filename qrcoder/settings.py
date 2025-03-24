@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-g_xm=2qd)xm@+_21kt-lu#3!&@2+^69mp_f(yy8%ouc!q^p#&$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get("DEBUG", "True")
+DEBUG = False if os.environ.get("DEBUG", "True") == "0" else True
 
-ALLOWED_HOSTS = ['qr-coder.site','free-qrcoder.com','www.free-qrcoder.com', 'localhost']
+BASE_URL = 'qr-coder.site'
+ALLOWED_HOSTS = [BASE_URL, 'www.' + BASE_URL, 'localhost']
 
 # Application definition
 
@@ -128,11 +129,9 @@ STATIC_URL = 'static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
-AWS_STORAGE_BUCKET_NAME = 'free-qrcoder-content'
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', '')
 AWS_S3_URL_PROTOCOL = 'https'
 AWS_S3_USE_SSL = True
 AWS_S3_VERIFY = True
-
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-AWS_S3_BUCKET_NAME = os.environ.get('AWS_S3_BUCKET_NAME', '')
